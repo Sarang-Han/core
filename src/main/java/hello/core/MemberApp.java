@@ -1,0 +1,18 @@
+package hello.core;
+
+import hello.core.member.Grade;
+import hello.core.member.Member;
+import hello.core.member.MemberService;
+import hello.core.member.MemberserviceImpl;
+
+public class MemberApp {
+    public static void main(String[] args) {
+        MemberService memberservice = new MemberserviceImpl();
+        Member member = new Member(1L, "memberA", Grade.VIP);
+        memberservice.join(member);
+
+        Member findMember = memberservice.findMember(1L);
+        System.out.println("new member = " + member.getName());
+        System.out.println("find member = " + findMember.getName());
+    }
+}
